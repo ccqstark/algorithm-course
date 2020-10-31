@@ -1,3 +1,4 @@
+// 汽车加油问题
 #include <iostream>
 using namespace std;
 int main()
@@ -20,6 +21,7 @@ int main()
         else
         {
             oil = n - station[i];
+            // 加油后仍然不能到达下一个站点
             if (oil < 0)
             {
                 flag = 0;
