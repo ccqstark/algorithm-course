@@ -19,13 +19,15 @@ int main()
     // 初始化
     for (int i = 0; i <= m; i++)
     {
+        // 一个商品就够满减
         if (i <= price[0])
         {
             count[0][i] = price[0];
         }
         else
         {
-            count[0][i] = 9999999; // 初始化为最大值
+            // 不够满减
+            count[0][i] = 9999999; // 初始化为大值
         }
     }
 
@@ -50,7 +52,7 @@ int main()
     }
 
     int ans = count[n - 1][m];
-    // 无解
+    // 不够满减，无解
     if (ans == 9999999)
     {
         cout << -1;
