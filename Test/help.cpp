@@ -4,49 +4,31 @@ using namespace std;
 
 struct ans
 {
-    int value;
-    int h;
-    int l;
+    int num;
+    char name[30];
+    int score[3];
 } anss[666];
 
-bool compare(ans a, ans b){
-
-    if (a.h != b.h)
-        return a.h<b.h;
-    else
-        return a.l<b.l;
+void print()
+{
+    for (int i = 0; i < 5; i++)
+    {
+        cout << anss[i].num << " ";
+        cout << anss[i].name << " ";
+        cout << anss[i].score[0] << " ";
+        cout << anss[i].score[1] << " ";
+        cout << anss[i].score[2] << endl;
+    }
 }
-
 int main()
 {
-    int m,n;
-    cin>>m>>n;
-    int arr[666][666];
-    for(int i=1;i<=m;i++){
-       for(int j=1;j<=n;j++){
-           cin>>arr[i][j];
-       }
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> anss[i].num;
+        cin >> anss[i].name;
+        cin >> anss[i].score[0];
+        cin >> anss[i].score[1];
+        cin >> anss[i].score[2];
     }
-
-    int num = 0;
-
-    for(int i=2;i<=m-1;i++){
-       for(int j=2;j<=n-1;j++){
-           if(arr[i][j]>arr[i-1][j] && arr[i][j]>arr[i][j-1] && arr[i][j]>arr[i+1][j] && arr[i][j]>arr[i][j+1]){
-               num++;
-               anss[num].value = arr[i][j];
-               anss[num].h = i;
-               anss[num].l = j; 
-           }
-       }
-    }
-
-    if(num!=0){
-        sort(anss+1,anss+num+1,compare);
-         for(int i=1;i<=num;i++){
-             cout<<anss[i].value<<" "<<anss[i].h<<" "<<anss[i].l<<endl;
-         }
-    }else{
-        cout<<"None "<<m<<" "<<n;
-    }
+    print();
 }
